@@ -98,7 +98,7 @@ def main():
 
                 p = P(stylename=styles.code)
                 for line in body.split("\n"):
-                    for i, chunk in enumerate(line.split(" ")):
+                    for i, chunk in enumerate(line.replace("\t", "  ").split(" ")):
                         if i > 0:
                             p.addElement(S())
                         p.addElement(Span(text=chunk))
