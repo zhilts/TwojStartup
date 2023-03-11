@@ -21,7 +21,8 @@ def compile_regexes(*patterns):
 
 
 EXCLUDE_PATTERNS = compile_regexes(r".*node_modules", r".*site-packages", r".*\.git", r".*\.idea", r".*\.log$")
-INCLUDE_EXTENSIONS = ("java", "[tj]sx", "py", "md", "txt", "json", "ya?ml", "sh", "s?css", "conf", "html", "ini", "ino", "h", "cpp")
+INCLUDE_EXTENSIONS = ("java", "[tj]sx", "py", "md", "txt", "json", "ya?ml", "sh", "s?css", "conf", "html", "ini", "ino",
+                      "h", "cpp", "sql")
 INCLUDE_PATTERNS = compile_regexes(
     *(rf".*\.{ext}" for ext in INCLUDE_EXTENSIONS),
     r".*\.gitignore",
