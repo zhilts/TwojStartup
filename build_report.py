@@ -94,6 +94,7 @@ def main():
                         p.addElement(Span(text=chunk))
                     p.addElement(LineBreak())
                 doc.text.addElement(p)
+            doc.text.addElement(P())
 
 
 if __name__ == "__main__":
