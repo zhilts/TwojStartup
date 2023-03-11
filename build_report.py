@@ -13,6 +13,7 @@ from odf.style import Style, TextProperties
 parser = argparse.ArgumentParser(description="Reduce video size")
 parser.add_argument('-i', '--include', action='append', help="Add pattern to include", default=[])
 parser.add_argument('-e', '--exclude', action='append', help="Add pattern to exclude", default=[])
+parser.add_argument('-o', '--out', action='store', help="Pass directory for output", default='./')
 args = parser.parse_args()
 
 
@@ -86,7 +87,7 @@ def main():
     files = sorted(get_files(base_path, args.include, args.exclude))
     count = len(files)
     print(f"{count} files found")
-    with odt_doc(f"Report_{os.path.split(base_path)[-1]}.odt") as (doc, styles):
+    with odt_doc(f"{args.out}Report_{os.path.split(base_path)[-1]}.odt") as (doc, styles):
         for file in files:
             path_formatted = file.replace(base_path, ".")
             print(path_formatted)
